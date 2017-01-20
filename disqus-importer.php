@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/disqus-comments-importer/
 Description: Import comments from a Disqus export file.
 Author: Automattic, David Lynch
 Author URI: http://automattic.com
-Version: 0.2
+Version: 0.2.1
 Stable tag: 0.1
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -88,7 +88,7 @@ if ( class_exists( 'WP_Importer' ) ) {
 					if (trailingslashit( $link ) == trailingslashit( get_option( 'siteurl' ) ) ) {
 						$this->thread_to_post_id[$threadid] = (int) get_option( 'page_on_front' );
 					} else {
-						$this->thread_to_post_id[$threadid] = url_to_postid($link);
+						$this->thread_to_post_id[$threadid] = $thread->id;
 						// echo "<li>URL to postid: <code>", $link, "</code> - <code>", $this->thread_to_post_id[$threadid], "</code></li>";
 					}
 				}
